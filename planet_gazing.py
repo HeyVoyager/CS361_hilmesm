@@ -65,5 +65,29 @@ def search():
 def mercury():
     return render_template('mercury.html')
 
+@app.route("/venus")
+def venus():
+    return render_template('venus.html')
+
+@app.route("/mars")
+def mars():
+    return render_template('mars.html')
+
+@app.route("/jupiter")
+def jupiter():
+    return render_template('jupiter.html')
+
+@app.route("/saturn")
+def saturn():
+    return render_template('saturn.html')
+
+@app.route("/uranus")
+def uranus():
+    return render_template('uranus.html')
+
+@app.route("/neptune")
+def neptune():
+    return render_template('neptune.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

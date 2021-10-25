@@ -31,14 +31,38 @@
     {% endfor %}
         </tbody>
         </table>
-
-    <a href="{{ url_for('mercury') }}">Mercury</a>
-
+        <br>
+    <div>
+        <h1>Click on a planet below for more info:</h1>
+        <a href="{{ url_for('mercury') }}" class="btn btn-outline-info">Mercury</a>
+        <a href="{{ url_for('venus') }}" class="btn btn-outline-info">Venus</a>
+        <a href="{{ url_for('mars') }}" class="btn btn-outline-info">Mars</a>
+        <a href="{{ url_for('jupiter') }}" class="btn btn-outline-info">Jupiter</a>
+        <a href="{{ url_for('saturn') }}" class="btn btn-outline-info">Saturn</a>
+        <a href="{{ url_for('uranus') }}" class="btn btn-outline-info">Uranus</a>
+        <a href="{{ url_for('neptune') }}" class="btn btn-outline-info">Neptune</a>
+    </div>
+        <br>
     <h1>Weather</h1>
-    {% for weather in weather %}
-        <p>High: {{ weather.high }}</p>
-        <p>Low: {{ weather.low }}</p>
-        <p>Median: {{ weather.median }}</p>
+    <table id="tableid">
+        <thead>
+            <tr>
+                <th>High Temp</th>
+                <th>Low Temp</th>
+                <th>Median Temp</th>
+
+            </tr>
+        </thead>
+        <tbody>
+    {% for thing in weather %}
+        <tr>
+            <td>{{ thing.high }}</td>
+            <td>{{ thing.low }}</td>
+            <td>{{ thing.median }}</td>
+
+        </tr>
     {% endfor %}
+        </tbody>
+        </table>
 
 {% endblock content %}

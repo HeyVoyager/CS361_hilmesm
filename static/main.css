@@ -84,42 +84,51 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-table {
+#tableid table {
   width: 100%;
-  border: 1px solid black !important;
+  border: 1px solid black;
   border-collapse: collapse;
   color:rgb(61, 61, 61);
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-thead {
-  background-color: #61dafb;
-  color:rgb(61, 61, 61);
+#tableid thead {
+  background-color: #5f788a;
+  color: rgb(61, 61, 61);
   text-align: left;
 }
 
 tbody {
-  border: 1px solid black !important;
+  border: 1px solid black;
   color:rgb(61, 61, 61);
 }
 
 tr {
-  border: 1px solid black !important;
+  border: 1px solid black;
   color:rgb(61, 61, 61);
 }
 
 th {
-  border: 1px solid black !important;
-  color:rgb(61, 61, 61);
+  border: 1px solid black;
+  color: #fff;
+  table-layout: fixed;
+  width: 250px;
+  font-size: 13pt;
 }
 
 td {
-  border: 1px solid black !important;
+  border: 1px solid black;
   color:rgb(61, 61, 61);
-  font-size: 15pt;
+  font-size: 10pt;
+  table-layout: fixed;
+  width: 250px;
 }
 
-#tableid {
-    border: 1px solid black
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
 }
+
+
