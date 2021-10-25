@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Search Now</legend>
+                <div class="form-group">
+
+                    <small>
+                        <p>Enter location below as:</p>
+                        <p>City, State (e.g. Portland, OR)</p>
+                        <p>Zip Code (e.g. 97035)</p>
+                        <p>Lat,Long (e.g. 45.513, -122.678)</p>
+                    </small>
+                    {{ form.location.label(class="form-control-label") }}
+
+                    {% if form.location.errors %}
+                        {{ form.location(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.location.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.location(class="form-control form-control-lg") }}
+                    {% endif %}
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

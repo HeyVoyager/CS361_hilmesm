@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!--    <h1>Planet Visibility</h1>-->
+<!--    {% for post in posts %}-->
+<!--        <h2>{{ post.planet }}</h2>-->
+<!--        <p>Rise: {{ post.rise }}</p>-->
+<!--        <p>Comment: {{ post.comment }}</p>-->
+<!--    {% endfor %}-->
+
+    <h1>Planet Visibility Table</h1>
+        <table id="tableid">
+        <thead>
+            <tr>
+                <th>Planet</th>
+                <th>Rise</th>
+                <th>Set</th>
+                <th>Meridian</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for thing in jsonfile %}
+        <tr>
+            <td>{{ thing.Planet }}</td>
+            <td>{{ thing.Rise }}</td>
+            <td>{{ thing.Set }}</td>
+            <td>{{ thing.Meridian }}</td>
+            <td>{{ thing.Comment }}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+        </table>
+
+    <a href="{{ url_for('mercury') }}">Mercury</a>
+
+    <h1>Weather</h1>
+    {% for weather in weather %}
+        <p>High: {{ weather.high }}</p>
+        <p>Low: {{ weather.low }}</p>
+        <p>Median: {{ weather.median }}</p>
+    {% endfor %}
+
+{% endblock content %}
