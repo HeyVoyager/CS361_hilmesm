@@ -4,14 +4,14 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Search Now</legend>
+                <legend class="border-bottom mb-4">Find planet visibility in your area</legend>
                 <div class="form-group">
 
                     <small>
-                        <p>Enter location below as:</p>
+                        <p><b>Enter your location below as:</b></p>
                         <p>City, State (e.g. Portland, OR)</p>
                         <p>Zip Code (e.g. 97035)</p>
-                        <p>Lat,Long (e.g. 45.513, -122.678)</p>
+                        <p>Lat,Long (e.g. 45.513,-122.678 (no spaces))</p>
                     </small>
                     {{ form.location.label(class="form-control-label") }}
 
