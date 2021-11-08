@@ -71,7 +71,7 @@ def planet_gazing_latlong():
     req_data = request.get_json()
     latitude = req_data['latitude']
     longitude = req_data['longitude']
-    #
+
     # latitude = request.args.get('latitude')
     # longitude = request.args.get('longitude')
     string = str(latitude) + ',' + str(longitude)
