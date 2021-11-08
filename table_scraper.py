@@ -11,7 +11,17 @@ import os
 
 
 
-def scraper(url):
+def scraper(input_data):
+
+    if '-' in input_data:
+        input = input_data
+        input = input.replace(' ', '')
+        url = 'https://www.timeanddate.com/astronomy/night/@' + input
+
+    else:
+        input = input_data
+        url = 'https://www.timeanddate.com/astronomy/night/@z-us-' + input
+
     f = open("planet_visibility.json", "r+")
     f.seek(0)
     f.truncate()
@@ -68,5 +78,5 @@ def scraper(url):
 
     print(data)
 
-url = 'https://www.timeanddate.com/astronomy/night/usa/portland-or'
-scraper(url)
+# url = 'https://www.timeanddate.com/astronomy/night/usa/portland-or'
+# scraper(url)
