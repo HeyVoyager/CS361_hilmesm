@@ -47,21 +47,17 @@
     <table id="tableid">
         <thead>
             <tr>
-                <th>High Temp</th>
-                <th>Low Temp</th>
-                <th>Median Temp</th>
-
+                <th>Temperature</th>
+                <th>Conditions</th>
             </tr>
         </thead>
         <tbody>
-    {% for thing in weather %}
-        <tr>
-            <td>{{ thing.high }}</td>
-            <td>{{ thing.low }}</td>
-            <td>{{ thing.median }}</td>
 
+        <tr>
+            <td>{{ weather_conditions.temperature }}</td>
+            <td>{{ weather_conditions.weather }}</td>
         </tr>
-    {% endfor %}
+
         </tbody>
         </table>
 

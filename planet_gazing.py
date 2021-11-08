@@ -25,31 +25,41 @@ def visibility():
     with open('planet_visibility.json', 'r') as myfile:
         data = myfile.read()
 
-    print(type(data))
-    dump = json.dumps(data)
-    print(type(dump))
-    print(data)
-    return render_template('visibility.html', weather=weather, jsonfile=json.loads(data), title='Tonight')
+    with open('weather.json', 'r') as weatherfile:
+        weather_conditions = weatherfile.read()
+    print(weather_conditions)
+    return render_template('visibility.html', weather_conditions=json.loads(weather_conditions), jsonfile=json.loads(data), title='Tonight')
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
     form = SearchForm()
     if form.validate_on_submit():
+        # Generates send_data in JSON format
+        if '-' in form.location.data:
+            input = form.location.data
+            input = input.replace(' ', '')
+            input = input.split(',')
+            send_data = {}
+            send_data['latitude'] = input[0]
+            send_data['longitude'] = input[1]
+            url = 'http://localhost:3030/current-weather/latitude-longitude'
+            latlon = {'latitude': input[0], 'longitude': input[1]}
+            res = requests.post(url, json=latlon)
+            res = res.json()
+        else:
+            zipcode = form.location.data
+            send_data = {}
+            send_data['zipCode'] = zipcode
+            url = 'http://localhost:3030/current-weather/zip-code/'
+            zipdata = {'zipCode': zipcode}
+            res = requests.post(url, json=zipdata)
+            res = res.json()
 
-        # if '-' in form.location.data:
-        #     api_url = 'http://localhost:3030/current-weather/latitude-longitude'
-        #     input = form.location.data
-        #     input = input.replace(' ', '')
-        #     input = input.split(',')
-        #     send_data = {}
-        #     send_data['latitude'] = input[0]
-        #     send_data['longitude'] = input[1]
-        # else:
-        #     api_url = 'http://localhost:3030/current-weather/zip-code'
-        #     zipcode = form.location.data
-        #     send_data = {}
-        #     send_data['zipCode'] = zipcode
-        # r = requests.post(url=api_url, json=send_data)
+        f = open("weather.json", "r+")
+        f.seek(0)
+        f.truncate()
+        with open('weather.json', 'w') as fout:
+            json.dump(res, fout)
 
         scraper(form.location.data)
         # if '-' in form.location.data:

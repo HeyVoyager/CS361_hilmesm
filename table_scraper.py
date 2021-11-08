@@ -76,7 +76,7 @@ def scraper(input_data):
     with open('planet_visibility.json', 'r') as myfile:
         data = myfile.read()
 
-    print(data)
+    # print(data)
 
 # url = 'https://www.timeanddate.com/astronomy/night/usa/portland-or'
 # scraper(url)
