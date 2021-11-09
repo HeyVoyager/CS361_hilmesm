@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect, jsonify, request
+from flask_cors import CORS
 from forms import SearchForm
 import json
 from table_scraper import scraper
@@ -8,6 +9,7 @@ import requests
 # Python Flask Tutorial: Full-Featured Web App
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['SECRET_KEY'] = '8475930875648334'
 
