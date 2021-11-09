@@ -76,6 +76,25 @@ def search():
         return redirect(url_for('visibility'))
     return render_template('search.html', title='Search', form=form)
 
+@app.route("/top5", methods=["GET"])
+def top5_stargazing_coordinates():
+    """
+    6 Oregon Destinations That Are Perfect for Stargazing
+    (Source: https://thedyrt.com/magazine/local/dark-sky-map-stargazing-oregon/)
+    1. Green Lakes lat 44.0873 lon 121.7310
+    2. Pine Mountain Observatory lat 43.7917 lon 120.9410
+    3. Crater Lake lat 42.9446 lon 122.1090
+    4. Zumwalt Prairie lat 45.5559 lon 116.9587
+    5. Cannon Beach lat 45.8918 lon 123.9615
+    """
+    return jsonify([
+        {"latitude": 44.0873, "longitude": 121.7310},
+        {"latitude": 43.7917, "longitude": 120.9410},
+        {"latitude": 42.9446, "longitude": 122.1090},
+        {"latitude": 45.5559, "longitude": 116.9587},
+        {"latitude": 45.8918, "longitude": 123.9615}
+    ])
+
 @app.route("/planet-gazing-data/latitude-longitude", methods=['GET', 'POST'])
 def planet_gazing_latlong():
     req_data = request.get_json()
