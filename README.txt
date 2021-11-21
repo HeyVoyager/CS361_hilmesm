@@ -9,6 +9,10 @@ pandas
 bs4 (Beautiful Soup)
 json
 
+- You might need to create empty files for:
+planet_visibility.json
+weather.json
+
 -To run:
 CD into the folder where you save the code.
 Run the command "flask run" in the terminal.
