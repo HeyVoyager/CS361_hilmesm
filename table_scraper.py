@@ -4,6 +4,7 @@ import pandas as pd
 import lxml
 import json
 import os
+# push
 
 # Code is modified from:
 # https://medium.com/analytics-vidhya/how-to-web-scrape-tables-online-using-python-and-beautifulsoup-36d5bafeb982
